@@ -1,0 +1,6 @@
+.idea/*
+.idea
+./pkg
+./bin
+./log
+**/log/
