@@ -12,4 +12,7 @@ func main() {
 	fmt.Println(t2)
 	t3 := strings.Split("5555666",",")
 	fmt.Println(t3)
+	aa := "/songshu/track/overseas_idn_shuaji/20190823/songshu_track-overseas_idn_shuaji.log.1.1.1.18.20190822010000"
+	fmt.Println(aa[1:len(aa)])
+	fmt.Println(strings.ReplaceAll(aa[1:len(aa)],"/","_"))
 }

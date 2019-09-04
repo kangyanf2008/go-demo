@@ -7,6 +7,8 @@ import (
 
 func main() {
 	fmt.Println(Stime2TimeStamp(FormatTime(time.Now())))
+	fmt.Println(FormatTime(time.Now().UTC()))
+	fmt.Println(FormatTime(time.Now()))
 }
 
 
@@ -29,3 +31,4 @@ func Stime2TimeStamp(stime string) int64 {
 func TimeStamp() int64 {
 	return time.Now().UnixNano() / 1e6
 }
+

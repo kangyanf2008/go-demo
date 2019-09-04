@@ -9,4 +9,7 @@ func main() {
 	for k, v := range t {
 		fmt.Printf("key=[%s],value=[%s]\n", k, v)
 	}
+	if u,ok := t["key2"]; ok {
+		fmt.Println(u)
+	}
 }
