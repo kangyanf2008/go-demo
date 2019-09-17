@@ -6,3 +6,4 @@
 #map-test3 遍历map例子
 #strings-test1 字符串例子
 #array-test1 切片例子
+#random 随机数和switch
