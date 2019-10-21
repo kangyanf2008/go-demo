@@ -7,3 +7,4 @@
 #strings-test1 字符串例子
 #array-test1 切片例子
 #random 随机数和switch
+#int32converint64  数据类型转换
