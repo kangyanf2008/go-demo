@@ -17,4 +17,23 @@ func main() {
 	 nn, _ := strconv.ParseInt(dd,10,64)
 	 fmt.Println(nn)
 
+	birthday := "0"
+	if len(birthday) > 0 {
+		birthdayInt64, _ := strconv.ParseInt(birthday, 10, 64)
+		fmt.Println(birthdayInt64)
+	}
+
+	var a int = 1000000000
+	fmt.Println(int32(a))
+
+	var cc int32 = 1000000000
+  have := false
+	fmt.Println(int(cc))
+have = true
+fmt.Println(have)
+
+var test int64 =  10000
+fmt.Println(test)
+fmt.Println(int32(test))
+
 }
