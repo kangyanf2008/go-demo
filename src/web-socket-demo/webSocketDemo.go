@@ -25,7 +25,9 @@ func wsHandler(conn *websocket.Conn)  {
 		if !conn.IsServerConn() && !conn.IsClientConn() {
 			return
 		}
-		fmt.Println(conn.Request().Header)
+//		fmt.Println(conn.Request().Header)
+		sessionKey := conn.Request().Header.Get("Sec-Websocket-Key")
+fmt.Println(sessionKey)
 		data := ""
 		if err := websocket.Message.Receive(conn, &data); err != nil {
 			if err.Error() == "EOF" {
