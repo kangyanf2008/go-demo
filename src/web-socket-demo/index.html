@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Websocket</title>
+</head>
+<body>
+    <h1>发送消息</h1>
+    <form>
+        <p>
+            发送内容: <input id="content" type="text" placeholder="输入要转换的字符串">
+        </p>
+    </form>
+    <label id="result">返回结果：</label><br><br>
+    <button onclick="send()">请求</button>
+	<div id="output"></div>
+    <script type="text/javascript">
+        var sock = null;
+        var wsuri = "ws://127.0.0.1:9999/ws";
+        sock = new WebSocket(wsuri);
+		var output = document.getElementById("output");
+ 
+        function send() {
+            var msg = document.getElementById('content').value;
+            sock.send(msg);
+        }
+		//接收消息
+	    sock.onmessage = function(e) {
+            var result = document.getElementById('result');
+            result.innerHTML = "结果为：" + e.data;
+        }
+		//关闭连接
+		sock.onclose = function(evt) {
+			print("CLOSE");
+			ws = null;
+        }
+		//打开连接
+		 sock.onopen = function() {
+			print("Open: ");
+		};
+		//异常
+		sock.onerror = function(evt) {
+			print("ERROR: " + evt.data);
+		};
+		
+		var print = function(message) {
+			var d = document.createElement("div");
+			d.innerHTML = message;
+			output.appendChild(d);
+		};
+    </script>
+</body>
+</html>
