@@ -24,8 +24,9 @@ func main() {
 	inte1 := model.Invocation{MethodName:"aaa",InterfaceName:"login."}
 	//inte2 := model.Invocation{MethodName:"out",InterfaceName:"login."}
 	for i:=0; i< 100000; i++{
-		go strategy.DoSelect(conns, inte1, fmt.Sprint(i))
-		go strategy.DoSelect(conns, inte1, fmt.Sprint(i))
+		strategy.DoSelect(conns, inte1, fmt.Sprint(i))
+		//go strategy.DoSelect(conns, inte1, fmt.Sprint(i))
+		//go strategy.DoSelect(conns, inte1, fmt.Sprint(i))
 		//go strategy.DoSelect(conns, inte2)
 	}
 	time.Sleep(time.Second*2)
