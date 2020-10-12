@@ -244,7 +244,7 @@ func (d *Decoder) Close() error {
 func (d *Decoder) Write(p []byte) (n int, err error) {
 	if len(p) == 0 {
 		// Prevent state machine CPU attacks (making us redo
-		// work up to the point of finding out we don't have
+		// work up to the pointer of finding out we don't have
 		// enough data)
 		return
 	}

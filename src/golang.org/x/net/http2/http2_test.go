@@ -201,7 +201,7 @@ func TestSorterPoolAllocs(t *testing.T) {
 
 // waitCondition reports whether fn eventually returned true,
 // checking immediately and then every checkEvery amount,
-// until waitFor has elapsed, at which point it returns false.
+// until waitFor has elapsed, at which pointer it returns false.
 func waitCondition(waitFor, checkEvery time.Duration, fn func() bool) bool {
 	deadline := time.Now().Add(waitFor)
 	for time.Now().Before(deadline) {

@@ -154,7 +154,7 @@ func splitHeaderBlock(ctx writeContext, headerBlock []byte, fn func(ctx writeCon
 	// For now we're lazy and just pick the minimum MAX_FRAME_SIZE
 	// that all peers must support (16KB). Later we could care
 	// more and send larger frames if the peer advertised it, but
-	// there's little point. Most headers are small anyway (so we
+	// there's little pointer. Most headers are small anyway (so we
 	// generally won't have CONTINUATION frames), and extra frames
 	// only waste 9 bytes anyway.
 	const maxFrameSize = 16384

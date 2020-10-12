@@ -101,7 +101,7 @@ import (
 // setting it to the boolean value represented by the string.
 //
 // Unmarshal maps an XML element or attribute value to an integer or
-// floating-point field by setting the field to the result of
+// floating-pointer field by setting the field to the result of
 // interpreting the string value in decimal. There is no check for
 // overflow.
 //

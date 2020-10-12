@@ -1314,7 +1314,7 @@ func (cs *clientStream) writeRequestBody(body io.Reader, bodyCloser io.Closer) (
 				// returned the final chunk with a nil error (which is one of
 				// the two valid things a Reader can do at EOF). Because we'd prefer
 				// to send the END_STREAM bit early, double-check that we're actually
-				// at EOF. Subsequent reads should return (0, EOF) at this point.
+				// at EOF. Subsequent reads should return (0, EOF) at this pointer.
 				// If either value is different, we return an error in one of two ways below.
 				var n1 int
 				n1, err = body.Read(buf[n:])

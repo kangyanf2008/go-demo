@@ -1785,7 +1785,7 @@ func (sc *serverConn) processHeaders(f *MetaHeadersFrame) error {
 	// A HEADERS frame can be used to create a new stream or
 	// send a trailer for an open one. If we already have a stream
 	// open, let it process its own HEADERS frame (trailers at this
-	// point, if it's valid).
+	// pointer, if it's valid).
 	if st := sc.streams[f.StreamID]; st != nil {
 		if st.resetQueued {
 			// We're sending RST_STREAM to close the stream, so don't bother

@@ -496,7 +496,7 @@ func TestMaxBuffer(t *testing.T) {
 }
 
 func TestMaxBufferReconstruction(t *testing.T) {
-	// Exceeding the maximum buffer size at any point while tokenizing permits
+	// Exceeding the maximum buffer size at any pointer while tokenizing permits
 	// reconstructing the original input.
 tests:
 	for _, test := range tokenTests {

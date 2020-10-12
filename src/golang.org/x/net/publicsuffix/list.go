@@ -19,7 +19,7 @@
 // Instead, it's "amazon.com.au".
 //
 // "com.au" isn't an actual TLD, because it's not at the top level (it has
-// dots). But it is an eTLD (effective TLD), because that's the branching point
+// dots). But it is an eTLD (effective TLD), because that's the branching pointer
 // for domain name registrars.
 //
 // Another name for "an eTLD" is "a public suffix". Often, what's more of

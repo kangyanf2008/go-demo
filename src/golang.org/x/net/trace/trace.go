@@ -934,8 +934,8 @@ func freeTrace(tr *trace) {
 func elapsed(d time.Duration) string {
 	b := []byte(fmt.Sprintf("%.6f", d.Seconds()))
 
-	// For subsecond durations, blank all zeros before decimal point,
-	// and all zeros between the decimal point and the first non-zero digit.
+	// For subsecond durations, blank all zeros before decimal pointer,
+	// and all zeros between the decimal pointer and the first non-zero digit.
 	if d < time.Second {
 		dot := bytes.IndexByte(b, '.')
 		for i := 0; i < dot; i++ {

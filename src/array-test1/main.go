@@ -37,12 +37,15 @@ func main() {
 */
 	//fmt.Println(removeElement([]int{1,2,3,4,5}, 1))
 
-aa := []interface{}{11,"a",33,"bb"}
+/*aa := []interface{}{11,"a",33,"bb"}
 var cc []interface{}
 	cc = append(cc, aa...)
 	cc = append(cc, "tt",22)
-	fmt.Println(cc)
+	fmt.Println(cc)*/
 
+	roomIds := []int64{1,2,3,4,5,6,7}
+
+	fmt.Printf("%d", roomIds)
 }
 
 
