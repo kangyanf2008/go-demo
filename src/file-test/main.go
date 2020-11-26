@@ -4,11 +4,27 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"path/filepath"
 	"strconv"
 )
 
 func main() {
+	path := "D:\\kyf\\go-workspace\\password_generator\\src\\make.bat"
+	fmt.Println(filepath.Base(path))
+	fmt.Println(filepath.Dir(path))
+	fmt.Println(filepath.Join(filepath.Dir(path), "bb.bat"))
 
+	path2 := "./make.bat"
+	fmt.Println(filepath.Base(path2))
+	fmt.Println(filepath.Dir(path2))
+	fmt.Println(filepath.Join(filepath.Dir(path2), "bb.bat"))
+
+	path3 := "D:\\kyf\\go-workspace\\password_generator\\src"
+	fmt.Println(filepath.Base(path3))
+	fmt.Println(filepath.Dir(path3))
+}
+
+func Test()  {
 	var filename = "D:\\mobile.txt"
 	var f *os.File
 	var err1 error
@@ -48,7 +64,6 @@ func main() {
 
 	defer f.Close()
 }
-
 
 /**
  * 判断文件是否存在  存在返回 true 不存在返回false

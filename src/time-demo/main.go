@@ -18,10 +18,15 @@ func main() {
 	fmt.Println(TimeStamp()/(1000*60*60*24))
 	fmt.Println(time.Now().Unix()/(60*60*24))
 	fmt.Println(time.Now().Hour())*/
-	timesta := time.Now().Unix()
-	fmt.Println(timesta+GetBetweenNextDayByCurrentTime(timesta))
+	timesta := time.Now().UnixNano()/1000000
+	/**
+	1602675284059
+	1602678091240
+	 */
+	fmt.Println(timesta)
+/*	fmt.Println(timesta+GetBetweenNextDayByCurrentTime(timesta))
 	fmt.Println(GetBetweenNextDayTimeByTime(timesta).Unix())
-	fmt.Println(GetBetweenNextDayTimeByTime2(timesta))
+	fmt.Println(GetBetweenNextDayTimeByTime2(timesta))*/
 	/*timeStr := time.Now().Format("2006-01-02")
 	fmt.Println(timeStr)
 
