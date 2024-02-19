@@ -1,4 +1,4 @@
-package storage
+package kafka
 
 import (
 	"crypto/tls"
@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"github.com/Shopify/sarama"
 	"io/ioutil"
-	"os_go_comm/comm_log"
 	"path/filepath"
 	"time"
 )
@@ -98,7 +97,7 @@ func (c *KafkaStorage) createTopic(topic string) error {
 	broker := sarama.NewBroker(c.addrs[0])
 	err := broker.Open(c.config)
 	if err != nil {
-		comm_log.Error("初始化客户端失败 -> ", "error:", err, "Topic:", topic)
+		println("初始化客户端失败 -> ", "error:", err, "Topic:", topic)
 		return err
 	}
 	req := &sarama.CreateTopicsRequest{
@@ -112,7 +111,7 @@ func (c *KafkaStorage) createTopic(topic string) error {
 		Timeout: time.Second * 15,
 	}
 	if _, err := broker.CreateTopics(req); err != nil {
-		comm_log.Error("创建 Topic 失败 -> ", "error:", err, "Topic:", topic)
+		println("创建 Topic 失败 -> ", "error:", err, "Topic:", topic)
 		return err
 	}
 	return nil

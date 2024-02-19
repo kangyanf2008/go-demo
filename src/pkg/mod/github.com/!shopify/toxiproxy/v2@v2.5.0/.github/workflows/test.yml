@@ -1,0 +1,63 @@
+---
+
+name: Test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        go: ["1.19", "1.18", "1.17"]
+    name: go ${{ matrix.go }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup go
+        uses: actions/setup-go@v3
+        with:
+          go-version: ${{ matrix.go }}
+          check-latest: true
+          cache: true
+
+      - name: Tests
+        run: make test
+
+      - name: benchmarks
+        run: make bench
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+          check-latest: true
+          cache: true
+
+      - name: E2E tests
+        run: make test-e2e
+
+      - name: Build
+        uses: goreleaser/goreleaser-action@ff11ca24a9b39f2d36796d1fbd7a4e39c182630a
+        with:
+          distribution: goreleaser
+          version: v1.10.3
+          args: build --snapshot --rm-dist --skip-post-hooks --skip-validate --single-target
+        env:
+          GOOS: linux

@@ -1,4 +1,4 @@
-package consumer
+package kafka
 
 import (
 	"context"
@@ -8,7 +8,6 @@ import (
 	"fmt"
 	"github.com/Shopify/sarama"
 	"log"
-	"os_go_comm/comm_log"
 	"strings"
 	"sync/atomic"
 	"time"
@@ -43,14 +42,13 @@ func (c *KafkaConsumer) Run(ctx context.Context, topics []string) error {
 	go func() {
 		defer func() {
 			if err := recover(); err != nil {
-				comm_log.Error("Kafka 消费者出现 panic ->", "error", err)
+				println("Kafka 消费者出现 panic ->", "error", err)
 			}
 		}()
 		consume := &consumer{}
 		for {
-			comm_log.Info("正在加入消费者组 ->", "group_id", c.groupId, "topic", strings.Join(topics, ","))
 			if err := c.group.Consume(ctx, topics, consume); err != nil {
-				comm_log.Error("创建消费者失败 ->", "topics:", strings.Join(topics, ","), "error:", err)
+				println("创建消费者失败 ->", "topics:", strings.Join(topics, ","), "error:", err)
 			}
 		}
 	}()

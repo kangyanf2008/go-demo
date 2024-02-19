@@ -1,0 +1,17 @@
+---
+
+name: toxiproxy
+
+type: go
+
+up:
+  - homebrew:
+      - gnu-tar
+      - golangci-lint
+      - goreleaser
+      - shellcheck
+      - shfmt
+      - yamllint
+  - go:
+      version: 1.19
+      modules: true

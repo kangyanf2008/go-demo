@@ -1,4 +1,4 @@
-package main
+package kafka
 
 import (
 	"bufio"
@@ -7,10 +7,8 @@ import (
 	"regexp"
 )
 
-
-
 func main() {
-	aa,e :=ParseKafkaVersion("0.10.2.0")
+	aa, e := ParseKafkaVersion("0.10.2.0")
 	fmt.Println(e)
 	fmt.Println(aa)
 }
@@ -39,8 +37,6 @@ func dupInt32Slice(input []int32) []int32 {
 	}
 	return ret
 }
-
-
 
 // Encoder is a simple interface for any type that can be encoded as an array of bytes
 // in order to be sent as the key or value of a Kafka message. Length() is provided as an
@@ -110,8 +106,9 @@ func newKafkaVersion(major, minor, veryMinor, patch uint) KafkaVersion {
 
 // IsAtLeast return true if and only if the version it is called on is
 // greater than or equal to the version passed in:
-//    V1.IsAtLeast(V2) // false
-//    V2.IsAtLeast(V1) // true
+//
+//	V1.IsAtLeast(V2) // false
+//	V2.IsAtLeast(V1) // true
 func (v KafkaVersion) IsAtLeast(other KafkaVersion) bool {
 	for i := range v.version {
 		if v.version[i] > other.version[i] {
