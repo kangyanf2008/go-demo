@@ -5,6 +5,8 @@ go 1.20
 require github.com/milvus-io/milvus-sdk-go/v2 v2.2.3
 
 require (
+	github.com/3d0c/gmf v0.0.0-20220906170454-be727bc5b56c // indirect
+	github.com/BurntSushi/toml v1.4.0 // indirect
 	github.com/Shopify/sarama v1.38.1 // indirect
 	github.com/chai2010/webp v1.1.1 // indirect
 	github.com/cockroachdb/errors v1.9.1 // indirect
@@ -14,6 +16,7 @@ require (
 	github.com/eapache/go-resiliency v1.3.0 // indirect
 	github.com/eapache/go-xerial-snappy v0.0.0-20230111030713-bf00bc1b83b6 // indirect
 	github.com/eapache/queue v1.1.0 // indirect
+	github.com/fsnotify/fsnotify v1.8.0 // indirect
 	github.com/getsentry/sentry-go v0.12.0 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
