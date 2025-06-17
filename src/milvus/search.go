@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	milvusAddr     = `localhost:19530`
+	milvusAddr     = `192.168.5.201:19530`
 	nEntities, dim = 3000, 8
 	collectionName = "hello_milvus"
 
@@ -191,19 +191,22 @@ func main() {
 	}
 	fmt.Printf("\tids: %#v, randoms: %#v\n", idlist, randList)
 
-	if err := c.DeleteByPks(ctx, collectionName, "", pks); err != nil {
-		log.Fatalf("failed to delete by pks, err: %v", err)
-	}
-	_, err = c.QueryByPks(ctx, collectionName, nil, pks, []string{randomCol}, client.WithSearchQueryConsistencyLevel(entity.ClStrong))
-	if err != nil {
-		log.Printf("failed to query result, err: %v", err)
-	}
+	/*
+		if err := c.DeleteByPks(ctx, collectionName, "", pks); err != nil {
+			log.Fatalf("failed to delete by pks, err: %v", err)
+		}
+		_, err = c.QueryByPks(ctx, collectionName, nil, pks, []string{randomCol}, client.WithSearchQueryConsistencyLevel(entity.ClStrong))
+		if err != nil {
+			log.Printf("failed to query result, err: %v", err)
+		}
 
-	// drop collection
-	fmt.Printf(msgFmt, "drop collection `hello_milvus`")
-	if err := c.DropCollection(ctx, collectionName); err != nil {
-		log.Fatalf("failed to drop collection, err: %v", err)
-	}
+		// drop collection
+		fmt.Printf(msgFmt, "drop collection `hello_milvus`")
+		if err := c.DropCollection(ctx, collectionName); err != nil {
+			log.Fatalf("failed to drop collection, err: %v", err)
+		}
+
+	*/
 }
 
 func printResult(sRet *client.SearchResult) {
@@ -227,5 +230,5 @@ func printResult(sRet *client.SearchResult) {
 		randoms = append(randoms, val)
 		scores = append(scores, sRet.Scores[i])
 	}
-	fmt.Printf("\trandoms: %v, scores: %v\n", randoms, scores)
+	fmt.Printf("\traDIMENSIONndoms: %v, scores: %v\n", randoms, scores)
 }
